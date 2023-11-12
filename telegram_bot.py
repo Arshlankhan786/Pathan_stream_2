@@ -57,7 +57,7 @@ def shorten_url(url):
         return "Error shortening URL"
 
 # Create an updater and dispatcher
-updater = Updater("YOUR_BOT_TOKEN", use_context=True)
+updater = Updater("BOT_TOKEN", use_context=True)
 dispatcher = updater.dispatcher
 
 # Add command handlers
