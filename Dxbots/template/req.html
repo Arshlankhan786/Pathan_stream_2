@@ -1,23 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta property="og:image" content="https://i.ibb.co/M8S0Zzj/live-streaming.png" itemprop="thumbnailUrl">
+    <!--<link rel="icon" href=" Your Fevicol link "> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>%s</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius">
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
-
-<style>
-      marquee{
-      font-size: 22px;
-      color: Black;
-      font-family: serif;
-      }
-    </style>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Watch %s - PATHANBOTZ NAME </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
     body {
         font-family: sans-serif;
@@ -25,29 +16,70 @@
         margin: 0;
         padding: 0;
     }
-        #player-container {
+
+    #banner {
+        position: relative;
+        height: 55px;
+        color: #ffffff;
+        background-color: #2962ff;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .left-content {
+        flex: 1;
+        text-align: center;
+    }
+
+    .black-text {
+        color: white;
+    }
+
+    .right-content {
+        margin-left: 20px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ff9b05;
+        color: white;
+        text-decoration: none;
+    }
+
+    .button:hover {
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+
+    #player-container {
         margin: 1px;
     }
-        .container {
+
+    .containerbox {
+        overflow: hidden;
+        *zoom: 1;
+        margin: 0 10px;
+    }
+
+    .playercontainerbox {
         overflow: hidden;
         *zoom: 1;
         margin: 0 1px;
-        margin-bottom: 20px;
     }
-        .set-container {
-        padding: 15px;
+
+    .site-content {
+        padding: 20px;
     }
-        .containerbox {
-        overflow: hidden;
-        *zoom: 1;
-        margin-bottom: 70px;
+
+    #text {
+        margin: 20px;
     }
-        .mainupdates {
-        overflow: hidden;
-        *zoom: 1;
-        margin-bottom: 110px;
-    }
-        #button-container1 {
+
+    #button-container1 {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
@@ -76,6 +108,7 @@
         background-color: Lavender; 
         color: #ffffff; 
     }
+
     #button-container2 button#dl-btn,
     #button-container2 button#tgfile-btn,
     #button-container2 button#tg-btn {
@@ -104,57 +137,109 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    #info-box {
+        border: 1px solid #8A8A8A;
+        border-radius: 10px;
+        padding: 5px;
+        width: auto;
+        text-align: left;
+        margin: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        word-wrap: break-word;
+    }
 
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 300px;
+        text-align: center;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    #mx-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;#000000
+        height: 40px;
+        padding: 0 20px;
+        margin: 5px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: box-shadow 0.3s, background-color 0.3s, color 0.3s;
+        background-color: #f0f0f0; 
+        color: #000000; 
+    }
+
+    #mx-btn svg {
+        width: 20px;
+        height: 20px; 
+        margin-right: 5px; 
+    }
+
+    #vlc-btn:hover,
+    #mx-btn:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #dl-btn:hover,
+    #tgfile-btn:hover,
+    #tg-btn:hover {
+        background-color: #E8E8E8;
+    }
 </style>
-
 </head>
 
-<body>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '2d74592f56ad79cfd4779dd141bce192',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-	document.write('<scr' + 'ipt type="text/javascript" src="//www.highcpmcreativeformat.com/2d74592f56ad79cfd4779dd141bce192/invoke.js"></scr' + 'ipt>');
-</script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '2d74592f56ad79cfd4779dd141bce192',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-	document.write('<scr' + 'ipt type="text/javascript" src="//www.highcpmcreativeformat.com/2d74592f56ad79cfd4779dd141bce192/invoke.js"></scr' + 'ipt>');
-</script>
-
-<div class="set-container">
-    <div class="container">
-    <header>
-        <marquee bgcolor="#808080"
-<div class="toogle"></div>
-        <div id="file-name">
-            %s
-        </div>
-</marquee>
-    </header>
-        <tag src="%s" class="player"></tag>
+<body>   
+<div id="banner">
+    <div class="left-content">
+        <span class="black-text">Online Streaming</span>
     </div>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '8c51000ff3de2da0e03d7d5a3b353751',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-	document.write('<scr' + 'ipt type="text/javascript" src="//www.highcpmcreativeformat.com/8c51000ff3de2da0e03d7d5a3b353751/invoke.js"></scr' + 'ipt>');
-</script>
-<div class="containerbox"> 
-        <div style="margin-bottom: 5px; margin-top: 10px">𝐒𝐭𝐫𝐞𝐚𝐦 𝐎𝐩𝐭𝐢𝐨𝐧𝐬 :</div>
+</div>
+<div style="margin-bottom: 5px; margin-top: 5px"></div>
+<div class="site-content">
+    <!--
+YOUR ADS
+    -->
+    <div class="playercontainerbox"> 
+        <div id="player-container">
+            <video id="player" playsinline controls>
+                <source src=%s type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="containerbox"> 
+        <div id="info-box">
+           <p style="font-size: 16px; color:#7b89a3;">File Details :</p>
+           <p style="font-size: 13px; color:#7b89a3;">Name : {{%s}}</p>
+           <p style="font-size: 13px; color:#7b89a3;"> {{PATHANBOTZ}}</p>
+           <p style="font-size: 13px; color:#7b89a3;">Shared by : ******* (Privacy Enabled)</p>
+        </div>
+        <div style="margin-bottom: 5px; margin-top: 10px">Stream Options :</div>
         <div id="button-container1">
             <button id="vlc-btn" onclick="playOnline()">
                 <img src="https://i.ibb.co/GtnGhBV/videolan-vlc-logo-icon-170258.png" alt="vlc_logo" width="110px" height="40px"/>
@@ -170,60 +255,33 @@
             <button id="pi-btn" onclick="playOnlinepi()"><img src="https://i.ibb.co/JsDNHgz/c0C4vnAa.png" alt="playit_logo" width="140px">
             </button>
         </div>
-        </div>
-        <div style="margin-bottom: 5px; margin-top: 10px"></div>
+        <div style="margin-bottom: 5px; margin-top: 10px">Download Options :</div>
         <div id="button-container2">
-            <button id="dl-btn" onclick="download()">
+            <button id="tgfile-btn" onclick="openModalTG()">
+                <i class="fab fa-telegram"></i> Get as Telegram File
+            </button>
+        </div>
+        <div id="button-container2">
+            <button id="dl-btn" onclick="openModal()">
                 <i class="fas fa-download"></i> Download Now
             </button>
         </div>
-</div>
-
-        <div class="mainupdates">
-<center> 
-<div style="margin-bottom: 5px; margin-top: 10px">𝐉𝐨𝐢𝐧 𝐎𝐮𝐫 𝐌𝐚𝐢𝐧 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 𝐅𝐨𝐫 𝐌𝐨𝐫𝐞 𝐮𝐩𝐝𝐚𝐭𝐞𝐬 ❤️ :</div>
-<h3><b>   
-    <a href="https://telegram.dog/pathan_botz"> <img src="https://img.shields.io/badge/Updates- Channel -blueviolet?style=for-the-badge" alt="Channel"> </a> 
-</b></h3></center> 
+        <div id="button-container2">
+            <button class="block" id="tg-btn" onclick="openTgBot()">
+                <i class="fab fa-telegram"></i> Create Link Like This
+            </button>
+            
+            
         </div>
-    </div>
-</div>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '8c51000ff3de2da0e03d7d5a3b353751',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-	document.write('<scr' + 'ipt type="text/javascript" src="//www.highcpmcreativeformat.com/8c51000ff3de2da0e03d7d5a3b353751/invoke.js"></scr' + 'ipt>');
-</script>
-
-
-
-    <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.js"></script>
         <script>
-        const controls = [
-              'play-large',
-              'rewind',
-              'play', 
-              'fast-forward', 
-              'progress', 
-              'current-time',
-              'duration',
-              'mute',
-              'volume',
-              'captions',
-              'settings',
-              'pip',
-              'airplay',
-              'download',
-              'fullscreen'
-            ];
+            const player = new Plyr('#player', {
+                controls: ['play', 'progress', 'rewind', 'fast-forward', 'current-time', 'fullscreen', 'settings']
+            });
         </script>
+        </div>    
         <div>
-       
-                <script>
+<script>
     const currentUrl = window.location.href;
     const finalUrl = currentUrl.replace("/watch/", "/");
 
@@ -235,25 +293,20 @@
 
     function playOnlineMx() {
         const finalLinkUrl = finalUrl;
-        const mxUrl = `intent:${finalLinkUrl}#Intent;package=com.mxtech.videoplayer.ad;end`;
+        const mxUrl = `intent:${finalLinkUrl}#Intent;package=com.mxtech.videoplayer.ad;S.title={{file_name}};end`;
         window.location.href = mxUrl;
     }
-
+    
     function playOnlinesp() {
         const finalLinkUrl = finalUrl;
         const spUrl = `intent:${finalLinkUrl}#Intent;action=com.young.simple.player.playback_online;package=com.young.simple.player;end`;
         window.location.href = spUrl;
     }
-
+    
     function playOnlinepi() {
         const finalLinkUrl = finalUrl;
         const piUrl = `playit://playerv2/video?url=${finalLinkUrl}&amp;title={{file_name}}`;
         window.location.href = piUrl;
-    }
-
-    function download() {
-        const finalLinkUrl = finalUrl;
-        window.location.href = finalLinkUrl;
     }
 
     function openTgBot() {
@@ -326,19 +379,39 @@
         const finalLinkUrl = finalUrl;
         window.location.href = finalLinkUrl;
     }
+</script>
+<script>
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const player = Plyr.setup('.player', { controls });
-        });
-
-        const body = document.querySelector('body');
-        const footer = document.querySelector('footer');
-        const toogle = document.querySelector('.toogle');
-        toogle.onclick = () => {
-            body.classList.toggle('dark')
-            footer.classList.toggle('dark')
+    document.addEventListener('keydown', function (e) {
+        if (
+            e.key === 'F12' ||
+            (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+            (e.ctrlKey && e.key === 'u') ||
+            e.ctrlKey ||
+            e.shiftKey ||
+            e.altKey
+        ) {
+            e.preventDefault();
         }
-    </script>
-        </div>
+    });
+</script>
+       <!-- <div>
+          <center>
+
+YOUR ADS 
+
+          </center>  --> 
+<footer>
+        <p style="font-size: 15px; color:#7b89a3;padding-top: 30px ;margin:0px 10px; border-top: 1px solid #c2cee3;">
+      This website only provide service that help you convert your Telegram File to Online Streaming.
+      You can report the file/video that contains a problem like copyright, 18+, violence, et. Report <a href="https://telegram.dog" style="color: darkorange"><b>Here</b></a>
+      <p style="text-align:center">&copy; Copyright  </p>
+      <!--
+      YOUR ADS 
+      -->
+</footer>    
 </body>
-            </html>
+	</html></html>
